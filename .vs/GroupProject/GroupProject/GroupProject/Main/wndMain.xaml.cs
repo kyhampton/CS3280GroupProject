@@ -44,7 +44,7 @@ namespace GroupProject
             this.Hide();
 
             searchWindow.ShowDialog();
-
+            
             this.Show();
         }
 

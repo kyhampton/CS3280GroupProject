@@ -19,11 +19,18 @@ namespace GroupProject.Search
     /// </summary>
     public partial class wndSearch : Window
     {
+
+        public int InvoiceNum;
         public wndSearch()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Saves the selected invoice number in the InvoiceNum variable for the main screen to access.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
