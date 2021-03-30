@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="wndSearch" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="btnSelect" Content="Select" HorizontalAlignment="Left" Margin="205,340,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="btnSelect_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="491,340,0,0" VerticalAlignment="Top" Width="75" FontSize="20" Click="btnCancel_Click"/>
+        <DataGrid HorizontalAlignment="Left" Height="239" Margin="162,74,0,0" VerticalAlignment="Top" Width="463"/>
+        <ComboBox x:Name="cboNum" HorizontalAlignment="Left" Margin="177,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboDate" HorizontalAlignment="Left" Margin="334,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="491,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="64,89,0,0" VerticalAlignment="Top" Width="75" FontSize="20"/>
+
     </Grid>
 </Window>

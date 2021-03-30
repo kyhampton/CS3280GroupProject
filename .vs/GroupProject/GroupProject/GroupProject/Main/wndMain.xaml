@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Menu x:Name="Menu" Height="48" VerticalAlignment="Top" Margin="0,0,386,0">
+            <MenuItem x:Name="itemSearch" Header="Search" Click="itemSearch_Click"></MenuItem>
+            <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click"/>
+        </Menu>
     </Grid>
 </Window>
