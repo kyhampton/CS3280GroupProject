@@ -7,9 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Menu x:Name="Menu" Height="48" VerticalAlignment="Top" Margin="0,0,386,0">
-            <MenuItem x:Name="itemSearch" Header="Search" Click="itemSearch_Click"></MenuItem>
+        <Menu x:Name="Menu" Height="30" VerticalAlignment="Top" Margin="0,0,605,0" FontSize="20">
+            <MenuItem x:Name="itemSearch" Header="Search" Click="itemSearch_Click"/>
             <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click"/>
+            <MenuItem x:Name="itemsClose" Header="Exit" Click="itemClose_Cllick"/>
         </Menu>
+        <Label Content="Invoice Number" HorizontalAlignment="Left" Margin="32,48,0,0" 
+               VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TBD" 
+                 VerticalAlignment="Top" Width="150" Margin="220,52,0,0" FontSize="20"
+                 IsReadOnly="True"/>
+        <Label Content="Invoice Date" HorizontalAlignment="Left" Margin="32,96,0,0" 
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+        <Label Content="Total Cost" HorizontalAlignment="Left" Margin="32,144,0,0" 
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+        <TextBox x:Name="txtbxTotalCost" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" 
+            VerticalAlignment="Top" Width="150" Margin="220,144,0,0" FontSize="20"
+            IsReadOnly="True"/>
+        <Label Content="Invoice Item" HorizontalAlignment="Left" Margin="32,192,0,0" 
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,96,0,0" 
+                    Height="33" Width="150" FontSize="20"/>
+        <ListBox HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" 
+                 Width="150" Margin="220,195,0,0" FontSize="20"/>
+        <Button x:Name="btnAddItem" Content="+" HorizontalAlignment="Left" Margin="392,192,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" FontSize="20" Height="37"/>
+        <Label Content="Items Added" HorizontalAlignment="Left" Margin="32,240,0,0" 
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+        <ListBox x:Name="lstbxItemsAdded" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" 
+            Width="150" Margin="220,243,0,0" FontSize="20"/>
+        <Button x:Name="btnRemoveItem" Content="-" HorizontalAlignment="Left" Margin="392,243,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" FontSize="20" Height="37"/>
+        <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="424,48,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
+        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="592,52,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
+        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="508,120,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
+
     </Grid>
 </Window>
