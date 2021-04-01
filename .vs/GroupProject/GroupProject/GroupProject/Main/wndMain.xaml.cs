@@ -31,12 +31,13 @@ namespace GroupProject
             InitializeComponent();
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
-
-           
-            
-
         }
-
+        /// <summary>
+        /// Click on Search Button and it will navigate you to the 
+        /// Search Window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void itemSearch_Click(object sender, RoutedEventArgs e)
         {
             searchWindow = new wndSearch();
@@ -44,10 +45,14 @@ namespace GroupProject
             this.Hide();
 
             searchWindow.ShowDialog();
-            
+
             this.Show();
         }
-
+        /// <summary>
+        /// Click on this button and it will navigate you to the Edit Items Window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void itemItems_Click(object sender, RoutedEventArgs e)
         {
             itemsWindow = new wndItems();
@@ -58,5 +63,69 @@ namespace GroupProject
 
             this.Show();
         }
+        /// <summary>
+        /// Insert data into Invoice DB
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnNewInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            //This will pull up the form to add new data to the invoice logic
+
+            //InsertInvoices()
+            //InsertLineItems()
+        }
+        /// <summary>
+        /// Edit an existing Invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEditInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            //UpdateInvoices()
+        }
+        /// <summary>
+        /// This will delete an existing Invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDeleteInvoice_Click(object sender, RoutedEventArgs e)
+        {
+            //DeleteInvoices()
+            //DeleteLineItems()
+        }
+        /// <summary>
+        /// List of Items Changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //SelectItems()
+            //Pull Items from DB
+        }
+        //Selects Items to Insert Into DB for Invoices
+        private void btnAddItem_Click(object sender, RoutedEventArgs e)
+        {
+            //InsertItems()
+
+        }
+        /// <summary>
+        /// Displays a list of all items that have been added to Invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstbxItemsAdded_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //SelectItems()
+        }
+        /// <summary>
+        /// Removes Items from Invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoveItem_Click(object sender, RoutedEventArgs e)
+        {
+            //DeleteLineItems()
+        }
     }
-}
