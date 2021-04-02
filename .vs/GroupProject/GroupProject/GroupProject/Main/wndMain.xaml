@@ -39,6 +39,7 @@
         <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="424,48,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
         <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="592,52,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
         <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="508,120,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
+        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="318,355,0,0" VerticalAlignment="Top" Width="130" Height="54" FontSize="20"/>
 
     </Grid>
 </Window>

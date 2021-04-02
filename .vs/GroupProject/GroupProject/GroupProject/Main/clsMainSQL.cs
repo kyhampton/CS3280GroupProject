@@ -12,57 +12,57 @@ namespace GroupProject.Main
         /// This will Update an Invoice
         /// </summary>
         /// <returns></returns>
-        public string UpdateInvoices()
+        public string UpdateInvoices(string TotalCost, string InvoiceNum)
         {
-            string sSQL = "Update Invoices SET TotalCost = 1200 WHERE InvoiceNum = 123";
+            string sSQL = "Update Invoices SET TotalCost ="+TotalCost+" WHERE InvoiceNum = "+InvoiceNum;
             return sSQL;
         }
         /// <summary>
         /// This will Delete Selected Items
         /// </summary>
         /// <returns></returns>
-        public string DeleteLineItems()
+        public string DeleteLineItems(string InvoiceNum)
         {
-            string sSQL = "DELETE FROM LineItems WHERE InvoiceNum = 1234";
+            string sSQL = "DELETE FROM LineItems WHERE InvoiceNum = "+InvoiceNum;
             return sSQL;
         }
         /// <summary>
         /// This will Delete Selected Invoices
         /// </summary>
         /// <returns></returns>
-        public string DeleteInvoices()
+        public string DeleteInvoices(string InvoiceNum)
         {
-            string sSQL = "DELETE FROM Invoices WHERE InvoiceNum = 1234";
+            string sSQL = "DELETE FROM Invoices WHERE InvoiceNum = "+InvoiceNum;
             return sSQL;
         }
         /// <summary>
         /// This will Insert a new Set of Items and Attach it to the corresponding InvoiceNum
         /// </summary>
         /// <returns></returns>
-        public string InsertLineItems()
+        public string InsertLineItems(string InvoiceNum, string LineItemNum, string ItemCode)
         {
             string sSQL = "INSERT INTO LineItems (InvoiceNum, LineItemNum, ItemCode) " +
-                "VALUES (123, 1, 'AA')";
+                "VALUES ("+InvoiceNum+", "+LineItemNum+", "+ItemCode+")";
             return sSQL;
         }
         /// <summary>
         /// This will insert a new Invoice into the Database
         /// </summary>
         /// <returns></returns>
-        public string InsertInvoices()
+        public string InsertInvoices(string InvoiceDate, string TotalCost)
         {
             string sSQL = "INSERT INTO Invoices (InvoiceDate, TotalCost)" +
-                "VALUES ('#4/13/2018#', 100)";
+                "VALUES (#"+InvoiceDate+"#, "+TotalCost+")";
             return sSQL;
         }
         /// <summary>
         /// This will Select and return Invoice Data from the DB
         /// </summary>
         /// <returns></returns>
-        public string SelectInvoice()
+        public string SelectInvoice(string InvoiceNum)
         {
             string sSQL = "SELECT InvoiceNum, InvoiceDate, TotalCost " +
-                "FROM Invoices WHERE InvoiceNum = 123";
+                "FROM Invoices WHERE InvoiceNum ="+InvoiceNum;
             return sSQL;
         }
         /// <summary>
@@ -79,11 +79,11 @@ namespace GroupProject.Main
         /// This will Select and Return The InvoiceNum and corresponding ItemNums
         /// </summary>
         /// <returns></returns>
-        public string SelectLineItems()
+        public string SelectLineItems(string InvoiceNum)
         {
             string sSQL = "SELECT LineItems.ItemCode, ItemDesc.ItemDesc, ItemDesc.Cost " +
                 "FROM LineItems, ItemDesc WHERE LineItems.ItemCode = ItemDesc.ItemCode AND " +
-                "LineItems.InvoiceNum = 5000";
+                "LineItems.InvoiceNum = "+InvoiceNum;
             return sSQL;
         }
     }

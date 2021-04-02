@@ -19,7 +19,9 @@ namespace GroupProject.Search
     /// </summary>
     public partial class wndSearch : Window
     {
-
+        /// <summary>
+        /// The selected Invoice Number.
+        /// </summary>
         public int InvoiceNum;
         public wndSearch()
         {
@@ -36,6 +38,11 @@ namespace GroupProject.Search
             this.Close();
         }
 
+        /// <summary>
+        /// Cancel and go back to the main screen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

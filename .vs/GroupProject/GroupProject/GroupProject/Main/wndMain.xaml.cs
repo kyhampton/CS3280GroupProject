@@ -46,6 +46,8 @@ namespace GroupProject
 
             searchWindow.ShowDialog();
 
+            //selected invoice stored in searchWindow.InvoiceNum
+
             this.Show();
         }
         /// <summary>
@@ -60,6 +62,8 @@ namespace GroupProject
             this.Hide();
 
             itemsWindow.ShowDialog();
+
+            //Update all dropdowns to reflect any changes (dropdown.itemsSource =)
 
             this.Show();
         }
@@ -128,4 +132,15 @@ namespace GroupProject
         {
             //DeleteLineItems()
         }
+
+        /// <summary>
+        /// Closes the main window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void itemClose_Cllick(object sender, RoutedEventArgs e)
+        {
+            //Closee the window
+        }
     }
+}

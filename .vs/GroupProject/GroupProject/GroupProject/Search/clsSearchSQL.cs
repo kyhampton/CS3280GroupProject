@@ -79,7 +79,7 @@ namespace GroupProject.Search
         /// <returns></returns>
         public string SelectInvoiceByCostAndDate(string TotalCost, string InvoiceDate)
         {
-            string sSQL = "SELECT * FROM Invoices WHERE TotalCost =" + TotalCost + "AND InvoiceDate = " + InvoiceDate;
+            string sSQL = "SELECT * FROM Invoices WHERE TotalCost =" + TotalCost + "AND InvoiceDate = #" + InvoiceDate +"#";
 
             return sSQL;
         }
@@ -91,7 +91,7 @@ namespace GroupProject.Search
         /// <returns></returns>
         public string SelectInvoiceByDate(string InvoiceDate)
         {
-            string sSQL = "SELECT * FROM Invoices WHERE InvoiceDate = " + InvoiceDate;
+            string sSQL = "SELECT * FROM Invoices WHERE InvoiceDate = " + "#"+InvoiceDate+"#";
 
             return sSQL;
 
