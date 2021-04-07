@@ -12,7 +12,7 @@ namespace GroupProject.Search
         /// <summary>
         /// The SQL gets all of the invoices.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>All data from Invoice tabel</returns>
         public string SelectAllInvoices()
         {
             string sSQL = "SELECT * FROM Invoices";
@@ -24,7 +24,7 @@ namespace GroupProject.Search
         /// The SQL to select all the inoices with a specific invoice number.
         /// </summary>
         /// <param name="InvoiceNum">The InvoiceNum to retrieve the invoice data</param>
-        /// <returns></returns>
+        /// <returns>A specific Invoice</returns>
         public string SelectInvoiceData(string InvoiceNum)
         {
             string sSQL = "SELECT * FROM Invoices WHERE InvoiceNum = " + InvoiceNum;
@@ -37,7 +37,7 @@ namespace GroupProject.Search
         /// </summary>
         /// <param name="InvoiceNum">The invoice number</param>
         /// <param name="InvoiceDate">The invoice date</param>
-        /// <returns></returns>
+        /// <returns>A specific invoice</returns>
         public string SelectInvoiceByDate(string InvoiceNum, string InvoiceDate)
         {
             string sSQL = "SELECT * FROM Invoices WHERE InvoiceNum = " + InvoiceNum + "AND InvoiceDate = #" + InvoiceDate + "#";
@@ -51,7 +51,7 @@ namespace GroupProject.Search
         /// <param name="InvoiceNum">The invoice number</param>
         /// <param name="InvoiceDate">The invoice date</param>
         /// <param name="TotalCost">The total cost of the invoice</param>
-        /// <returns></returns>
+        /// <returns>A specific invoice</returns>
         public string SelectInvoiceByDateAndCost(string InvoiceNum, string InvoiceDate, string TotalCost)
         {
             string sSQL = "SELECT * FROM Invoices WHERE InvoiceNum = " + InvoiceNum + " AND InvoiceDate = #" + InvoiceDate + "# AND TotalCost = " + TotalCost;
@@ -76,7 +76,7 @@ namespace GroupProject.Search
         /// </summary>
         /// <param name="TotalCost">The total cost of the invoice</param>
         /// <param name="InvoiceDate">The invoice date</param>
-        /// <returns></returns>
+        /// <returns>A controlled range of invoices</returns>
         public string SelectInvoiceByCostAndDate(string TotalCost, string InvoiceDate)
         {
             string sSQL = "SELECT * FROM Invoices WHERE TotalCost =" + TotalCost + "AND InvoiceDate = #" + InvoiceDate +"#";
@@ -88,7 +88,7 @@ namespace GroupProject.Search
         /// The SQL to select the invoices by the date.
         /// </summary>
         /// <param name="InvoiceDate">The invoice date</param>
-        /// <returns></returns>
+        /// <returns>Date specific invoices</returns>
         public string SelectInvoiceByDate(string InvoiceDate)
         {
             string sSQL = "SELECT * FROM Invoices WHERE InvoiceDate = " + "#"+InvoiceDate+"#";

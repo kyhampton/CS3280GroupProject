@@ -14,7 +14,7 @@ namespace GroupProject.Main
         /// <returns></returns>
         public string UpdateInvoices(string TotalCost, string InvoiceNum)
         {
-            string sSQL = "Update Invoices SET TotalCost ="+TotalCost+" WHERE InvoiceNum = "+InvoiceNum;
+            string sSQL = "Update Invoices SET TotalCost =" + TotalCost + " WHERE InvoiceNum = " + InvoiceNum;
             return sSQL;
         }
         /// <summary>
@@ -23,7 +23,7 @@ namespace GroupProject.Main
         /// <returns></returns>
         public string DeleteLineItems(string InvoiceNum)
         {
-            string sSQL = "DELETE FROM LineItems WHERE InvoiceNum = "+InvoiceNum;
+            string sSQL = "DELETE FROM LineItems WHERE InvoiceNum = " + InvoiceNum;
             return sSQL;
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace GroupProject.Main
         /// <returns></returns>
         public string DeleteInvoices(string InvoiceNum)
         {
-            string sSQL = "DELETE FROM Invoices WHERE InvoiceNum = "+InvoiceNum;
+            string sSQL = "DELETE FROM Invoices WHERE InvoiceNum = " + InvoiceNum;
             return sSQL;
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace GroupProject.Main
         public string InsertLineItems(string InvoiceNum, string LineItemNum, string ItemCode)
         {
             string sSQL = "INSERT INTO LineItems (InvoiceNum, LineItemNum, ItemCode) " +
-                "VALUES ("+InvoiceNum+", "+LineItemNum+", "+ItemCode+")";
+                "VALUES (" + InvoiceNum + ", " + LineItemNum + ", " + ItemCode+")";
             return sSQL;
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace GroupProject.Main
         public string InsertInvoices(string InvoiceDate, string TotalCost)
         {
             string sSQL = "INSERT INTO Invoices (InvoiceDate, TotalCost)" +
-                "VALUES (#"+InvoiceDate+"#, "+TotalCost+")";
+                "VALUES (#" + InvoiceDate + "#, " + TotalCost + ")";
             return sSQL;
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace GroupProject.Main
         public string SelectInvoice(string InvoiceNum)
         {
             string sSQL = "SELECT InvoiceNum, InvoiceDate, TotalCost " +
-                "FROM Invoices WHERE InvoiceNum ="+InvoiceNum;
+                "FROM Invoices WHERE InvoiceNum =" + InvoiceNum;
             return sSQL;
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace GroupProject.Main
         {
             string sSQL = "SELECT LineItems.ItemCode, ItemDesc.ItemDesc, ItemDesc.Cost " +
                 "FROM LineItems, ItemDesc WHERE LineItems.ItemCode = ItemDesc.ItemCode AND " +
-                "LineItems.InvoiceNum = "+InvoiceNum;
+                "LineItems.InvoiceNum = " + InvoiceNum;
             return sSQL;
         }
     }

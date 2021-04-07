@@ -28,6 +28,7 @@ namespace GroupProject.Search
             InitializeComponent();
         }
 
+        #region Buttons
         /// <summary>
         /// Saves the selected invoice number in the InvoiceNum variable for the main screen to access.
         /// </summary>
@@ -47,5 +48,6 @@ namespace GroupProject.Search
         {
             this.Close();
         }
+        #endregion
     }
 }

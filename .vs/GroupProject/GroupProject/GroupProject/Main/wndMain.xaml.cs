@@ -22,8 +22,13 @@ namespace GroupProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Item window object to create the window
+        /// </summary>
         wndItems itemsWindow;
-
+        /// <summary>
+        /// Search window object to create the window.
+        /// </summary>
         wndSearch searchWindow;
 
         public MainWindow()
@@ -32,6 +37,8 @@ namespace GroupProject
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
         }
+
+        #region Control Menu
         /// <summary>
         /// Click on Search Button and it will navigate you to the 
         /// Search Window
@@ -67,6 +74,9 @@ namespace GroupProject
 
             this.Show();
         }
+        #endregion
+
+        #region Buttons
         /// <summary>
         /// Insert data into Invoice DB
         /// </summary>
@@ -99,29 +109,14 @@ namespace GroupProject
             //DeleteLineItems()
         }
         /// <summary>
-        /// List of Items Changed
+        /// Adds a new item
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //SelectItems()
-            //Pull Items from DB
-        }
-        //Selects Items to Insert Into DB for Invoices
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
             //InsertItems()
 
-        }
-        /// <summary>
-        /// Displays a list of all items that have been added to Invoice
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lstbxItemsAdded_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //SelectItems()
         }
         /// <summary>
         /// Removes Items from Invoice
@@ -132,7 +127,6 @@ namespace GroupProject
         {
             //DeleteLineItems()
         }
-
         /// <summary>
         /// Closes the main window.
         /// </summary>
@@ -140,7 +134,32 @@ namespace GroupProject
         /// <param name="e"></param>
         private void itemClose_Cllick(object sender, RoutedEventArgs e)
         {
-            //Closee the window
+            //Close the window
         }
+        #endregion
+
+        #region List Box
+        /// <summary>
+        /// List of Items Changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //SelectItems()
+            //Pull Items from DB
+        }
+        //Selects Items to Insert Into DB for Invoices
+
+        /// <summary>
+        /// Displays a list of all items that have been added to Invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lstbxItemsAdded_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //SelectItems()
+        }
+        #endregion
     }
 }
