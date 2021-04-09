@@ -18,6 +18,7 @@ namespace GroupProject.Search
             string sSQL = "SELECT * FROM Invoices";
 
             return sSQL;
+
         }
 
         /// <summary>
@@ -38,9 +39,22 @@ namespace GroupProject.Search
         /// <param name="InvoiceNum">The invoice number</param>
         /// <param name="InvoiceDate">The invoice date</param>
         /// <returns>A specific invoice</returns>
-        public string SelectInvoiceByDate(string InvoiceNum, string InvoiceDate)
+        public string SelectInvoiceNumByDate(string InvoiceNum, string InvoiceDate)
         {
             string sSQL = "SELECT * FROM Invoices WHERE InvoiceNum = " + InvoiceNum + "AND InvoiceDate = #" + InvoiceDate + "#";
+
+            return sSQL;
+        }
+
+        /// <summary>
+        /// The SQL returns the specific invoices with the provided invoice number and cost.
+        /// </summary>
+        /// <param name="InvoiceNum">The invoice number</param>
+        /// <param name="TotalCost">The invoice date</param>
+        /// <returns>A specific invoice</returns>
+        public string SelectInvoiceByNumAndCost(string InvoiceNum, string TotalCost)
+        {
+            string sSQL = "SELECT * FROM Invoices WHERE InvoiceNum = " + InvoiceNum + "AND TotalCost = " + TotalCost;
 
             return sSQL;
         }

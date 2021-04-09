@@ -31,6 +31,11 @@ namespace GroupProject
         /// </summary>
         wndSearch searchWindow;
 
+        /// <summary>
+        /// InvoiceNum from main window.
+        /// </summary>
+        public int InvoiceNum;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +58,7 @@ namespace GroupProject
 
             searchWindow.ShowDialog();
 
+            InvoiceNum = searchWindow.InvoiceNum;
             //selected invoice stored in searchWindow.InvoiceNum
 
             this.Show();
