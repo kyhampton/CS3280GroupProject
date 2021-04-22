@@ -325,7 +325,7 @@ namespace GroupProject.Items
                 }
 
                 //Checks that a '.' has already been entered. Verifies # only goes to hundredths 
-                if ((sender as TextBox).Text.Contains('.') && txtItemCost.Text.Substring(txtItemCost.Text.IndexOf('.')).Length >= 4)
+                if (txtItemCost.Text.Contains('.') && txtItemCost.Text.Substring(txtItemCost.Text.IndexOf('.')).Length > 3)
                 {
                     e.Handled = true;
                 }
