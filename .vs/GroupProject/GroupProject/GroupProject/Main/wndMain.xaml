@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FFD6D630" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
         <Menu x:Name="Menu" Height="30" VerticalAlignment="Top" Margin="0,0,595,0" FontSize="20">
             <MenuItem x:Name="itemSearch" Header="Search" Click="itemSearch_Click"/>
             <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click"/>

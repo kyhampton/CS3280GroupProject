@@ -197,12 +197,19 @@ namespace GroupProject
             List<clsLineItems> i = ml.getInvoiceItems(InvoiceNum);
             List<String> code = i.Select(a => a.ItemCode).ToList();
 
+            List<clsItems> temp = new List<clsItems>();
+
             foreach (var item in code)
             {
+                temp = ml.GetItemsByCode(item);
                 
             }
-            
-            cmbxItemsAdded.ItemsSource = addedItem;
+            List<String> desc = new List<String>();
+            desc = temp.Select(a => a.ItemDesc).ToList();
+            addeditems.AddRange(desc);
+
+            cmbxItemsAdded.ItemsSource = addeditems;
+
         }
         /// <summary>
         /// This will delete an existing Invoice
@@ -377,15 +384,7 @@ namespace GroupProject
                     MethodInfo.GetCurrentMethod().Name, ex.Message);
             }
         }
-        /// <summary>
-        /// Total Cost should change based on items being added and removed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtbxTotalCost_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        
         #endregion
 
         #region Data Grid
@@ -404,6 +403,7 @@ namespace GroupProject
                     InvoiceNum = invoice.InvoiceNum.ToString();
                     dpInvoiceDate.Text = invoice.InvoiceDate;
                     txtbxTotalCost.Text = "$ " + String.Format("{0:N2}", invoice.TotalCost.ToString());
+                    total = invoice.TotalCost;
                 }
 
             }

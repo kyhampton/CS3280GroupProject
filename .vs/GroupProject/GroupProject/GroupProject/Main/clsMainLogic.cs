@@ -15,6 +15,7 @@ namespace GroupProject.Main
         clsMainSQL sql = new clsMainSQL();
         List<clsInvoice> invoiceResult = new List<clsInvoice>();
         List<clsItems> itemsResult = new List<clsItems>();
+        List<clsItems> itemsSearchByCode = new List<clsItems>();
         List<clsLineItems> lineItemsResult = new List<clsLineItems>();
         #endregion
         #region Get Logic
@@ -139,25 +140,26 @@ namespace GroupProject.Main
 
                 ds = db.ExecuteSQLStatement(query, ref iRef);
 
-                clsItems items;
+                clsItems items = new clsItems();
 
-                for(int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    items = new clsItems();
-                    items.ItemCode = ds.Tables[0].Rows[i][0].ToString();
-                    items.ItemDesc = ds.Tables[0].Rows[i][1].ToString();
-                    items.ItemCost = Convert.ToDouble(ds.Tables[0].Rows[i][2].ToString());
+                items.ItemDesc = ds.Tables[0].Rows[0].ItemArray[0].ToString();
 
-                    itemsResult.Add(items);
-                }
+                itemsSearchByCode.Add(items);
 
+                //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                //{
+                //    items = new clsItems();
+                //    items.ItemDesc = ds.Tables[0].Rows[i][0].ToString();
+                //    itemsResult.Add(items);
+                //}
+                
             }
             catch (Exception ex)
             {
                 throw new Exception(MethodInfo.GetCurrentMethod().DeclaringType.Name + "." +
                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
-            return itemsResult;
+            return itemsSearchByCode;
         }
 
         public List<clsInvoice> GetAllInvoices()
