@@ -5,23 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject.Items"
         mc:Ignorable="d"
-        Title="Items" Height="432" Width="510.714">
+        Title="Lemonade Edit Items" Height="432" Width="510.714">
     <Grid Margin="0,0,2,0">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FF1F6989" Offset="0.126"/>
+                <GradientStop Color="#FF29708E" Offset="0.121"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <DataGrid x:Name="dgItemList" HorizontalAlignment="Left" Height="174" Margin="10,217,0,0" VerticalAlignment="Top" Width="463" SelectionChanged="dgItemList_SelectionChanged" CanUserAddRows="False"/>
-        <GroupBox x:Name="gbItemManagement" Header="Item Management" HorizontalAlignment="Left" Height="202" Margin="10,10,0,0" VerticalAlignment="Top" Width="463">
+        <GroupBox x:Name="gbItemManagement" Header="Item Management" HorizontalAlignment="Left" Height="202" Margin="10,10,0,0" 
+                  VerticalAlignment="Top" Width="463">
             <Grid HorizontalAlignment="Left" Height="173" Margin="0,0,-2,0" VerticalAlignment="Top" Width="453">
-                <Button x:Name="btnAddItems" Content="Add Item" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="75" Click="btnAddItems_Click" Height="35" TabIndex="0"/>
+                <Button x:Name="btnAddItems" Content="Add Item" HorizontalAlignment="Left" Margin="10,15,0,0" 
+                        VerticalAlignment="Top" Width="75" Click="btnAddItems_Click" Height="35" TabIndex="0" 
+                        Background="White" Foreground="#FF29708E"/>
                 <TextBox x:Name="txtItemCode" HorizontalAlignment="Left" Height="23" Margin="204,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" KeyDown="txtItemCode_KeyDown" TabIndex="4" RenderTransformOrigin="0.458,-0.913" MaxLength="4"/>
                 <TextBox x:Name="txtItemDesc" HorizontalAlignment="Left" Height="70" Margin="204,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TabIndex="5" MaxLength="500"/>
                 <TextBox x:Name="txtItemCost" HorizontalAlignment="Left" Height="23" Margin="204,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="122" TabIndex="6" PreviewTextInput="txtItemCost_PreviewTextInput" PreviewKeyDown="txtItemCost_PreviewKeyDown" MaxLength="8"/>
-                <Button x:Name="btnEditItem" Content="Edit Item" HorizontalAlignment="Left" Margin="368,15,0,0" VerticalAlignment="Top" Width="75" Click="btnEditItem_Click" Height="35" TabIndex="1" IsEnabled="False"/>
-                <Button x:Name="btnDeleteItem" Content="Delete Item" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="75" Click="btnDeleteItem_Click" Height="35" TabIndex="2" IsEnabled="False"/>
-                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="btnExit_Click" TabIndex="3"/>
-                <Label x:Name="lblItemCode" Content="Item Code" HorizontalAlignment="Left" Margin="134,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.368,0.423"/>
-                <Label x:Name="lblItemDesc" Content="Item Description" HorizontalAlignment="Left" Margin="107,53,0,0" VerticalAlignment="Top"/>
-                <Label x:Name="lblItemCost" Content="Item Cost" HorizontalAlignment="Left" Margin="138,135,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="btnSaveEdit" Content="Save Changes" HorizontalAlignment="Left" Margin="368,56,0,0" VerticalAlignment="Top" Width="75" Click="btnSaveEdit_Click" Height="35" TabIndex="1" IsEnabled="False" FontSize="11"/>
-                <Button x:Name="btnCancelEdit" Content="Cancel" HorizontalAlignment="Left" Margin="368,96,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelEdit_Click" Height="35" TabIndex="1" IsEnabled="False" FontSize="11"/>
+                <Button x:Name="btnEditItem" Content="Edit Item" HorizontalAlignment="Left" Margin="368,15,0,0" 
+                        VerticalAlignment="Top" Width="75" Click="btnEditItem_Click" Height="35" TabIndex="1" 
+                        IsEnabled="False" Background="White" Foreground="#FF29708E"/>
+                <Button x:Name="btnDeleteItem" Content="Delete Item" HorizontalAlignment="Left" Margin="10,53,0,0" 
+                        VerticalAlignment="Top" Width="75" Click="btnDeleteItem_Click" Height="35" TabIndex="2" 
+                        IsEnabled="False" Background="White" Foreground="#FF29708E"/>
+                <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="10,93,0,0" 
+                        VerticalAlignment="Top" Width="75" Height="35" Click="btnExit_Click" TabIndex="3" 
+                        Background="White" Foreground="#FF29708E"/>
+                <Label x:Name="lblItemCode" Content="Item Code" HorizontalAlignment="Left" Margin="134,15,0,0" 
+                       VerticalAlignment="Top" RenderTransformOrigin="1.368,0.423" Foreground="White"/>
+                <Label x:Name="lblItemDesc" Content="Item Description" HorizontalAlignment="Left" Margin="107,53,0,0" 
+                       VerticalAlignment="Top" Foreground="White"/>
+                <Label x:Name="lblItemCost" Content="Item Cost" HorizontalAlignment="Left" Margin="138,135,0,0" 
+                       VerticalAlignment="Top" Foreground="White"/>
+                <Button x:Name="btnSaveEdit" Content="Save Changes" HorizontalAlignment="Left" Margin="368,56,0,0" 
+                        VerticalAlignment="Top" Width="75" Click="btnSaveEdit_Click" Height="35" TabIndex="1" 
+                        IsEnabled="False" FontSize="11" Foreground="#FF29708E" Background="White"/>
+                <Button x:Name="btnCancelEdit" Content="Cancel" HorizontalAlignment="Left" Margin="368,96,0,0" 
+                        VerticalAlignment="Top" Width="75" Click="btnCancelEdit_Click" Height="35" TabIndex="1" 
+                        IsEnabled="False" FontSize="11" Background="White" Foreground="#FF29708E"/>
             </Grid>
         </GroupBox>
     </Grid>
