@@ -167,5 +167,10 @@ namespace GroupProject
             //SelectItems()
         }
         #endregion
+
+        private void txtbxTotalCost_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

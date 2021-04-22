@@ -9,7 +9,7 @@ namespace GroupProject.Items
     /// <summary>
     /// Stores SQL statements to modify a database.
     /// </summary>
-    class clsItemsSQL
+    public class clsItemsSQL
     {
         /// <summary>
         /// Returns a SQL statement to selects all the availalbe items.
@@ -34,6 +34,17 @@ namespace GroupProject.Items
 
             return sSQL;
         }
+        /// <summary>
+        /// Returns a SQL statement that gets a specific item's details
+        /// </summary>
+        /// <param name="ItemCode"></param>
+        /// <returns></returns>
+        public string SelectItemInformation(string ItemCode)
+        {
+            string sSQL = "SELECT ItemCode, ItemDesc, Cost FROM ItemDesc WHERE ItemCode = '" + ItemCode + "'";
+
+            return sSQL;
+        }
 
         /// <summary>
         /// Returns a SQL statement to updates the description & cost of an item.
@@ -42,9 +53,9 @@ namespace GroupProject.Items
         /// <param name="Cost"></param>
         /// <param name="ItemCode"></param>
         /// <returns>An updated description / cost of an item</returns>
-        public string UpdateItemDescription(string Description, string Cost, string ItemCode)
+        public string UpdateItemDescription(string ItemCode, string ItemDesc, string Cost)
         {
-            string sSQL = "UPDATE ItemDesc SET ItemDesc = '" + Description + "', Cost = " + Cost + " WHERE ItemCode = '" + ItemCode +"'";
+            string sSQL = "UPDATE ItemDesc SET ItemDesc = '" + ItemDesc + "', Cost = " + Cost + " WHERE ItemCode = '" + ItemCode +"'";
 
             return sSQL;
         }
@@ -70,11 +81,18 @@ namespace GroupProject.Items
         /// <returns></returns>
         public string DeleteItem(string ItemCode)
         {
-            string sSQL = "DELETE FROM ItemDesc WHERE ItemCode = " + ItemCode;
+            string sSQL = "DELETE FROM ItemDesc WHERE ItemCode = '" + ItemCode + "'";
 
             return sSQL;
         }
-
-
+        /// <summary>
+        /// Forms a SQL statement to get all data from LineItems
+        /// </summary>
+        /// <returns></returns>
+        public string GetLineItems()
+        {
+            string sSQL = "SELECT InvoiceNum, LineItemNum, ItemCode FROM LineItems";
+            return sSQL;
+        }
     }
 }

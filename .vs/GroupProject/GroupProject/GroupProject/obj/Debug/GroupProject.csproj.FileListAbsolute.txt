@@ -20,7 +20,6 @@ C:\Users\jedii\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\Gro
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\bin\Debug\GroupProject.exe.config
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\bin\Debug\GroupProject.exe
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\bin\Debug\GroupProject.pdb
-C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.csprojAssemblyReference.cache
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\Items\wndItems.g.cs
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\Main\wndMain.g.cs
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\Search\wndSearch.g.cs
