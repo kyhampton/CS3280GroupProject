@@ -323,10 +323,26 @@ namespace GroupProject.Items
                 {
                     e.Handled = true;
                 }
-
-                //Checks that a '.' has already been entered. Verifies # only goes to hundredths 
-                if ((sender as TextBox).Text.Contains('.') && txtItemCost.Text.Substring(txtItemCost.Text.IndexOf('.')).Length >= 4)
+            }
+            catch (System.Exception ex)
+            {
+                HandleError(MethodInfo.GetCurrentMethod().DeclaringType.Name,
+                            MethodInfo.GetCurrentMethod().Name, ex.Message);
+            }
+        }
+        /// <summary>
+        /// Prevents the user from entering values smaller than hundrethds
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtItemCost_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                //Checks that a '.' has already been entered. Verifies # only goes to hundredths, wraps around to add larger values 'feature'
+                if (txtItemCost.Text.Contains('.') && txtItemCost.Text.Substring(txtItemCost.Text.IndexOf('.')).Length > 3)
                 {
+                    txtItemCost.Text = txtItemCost.Text.Remove(txtItemCost.Text.Length - 1);
                     e.Handled = true;
                 }
             }
@@ -344,6 +360,7 @@ namespace GroupProject.Items
         private void txtItemCost_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             try {
+                //Disallows the user to enter spaces
                 if (e.Key == Key.Space)
                 {
                     e.Handled = true;

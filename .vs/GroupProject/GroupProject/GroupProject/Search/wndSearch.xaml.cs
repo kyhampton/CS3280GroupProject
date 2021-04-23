@@ -65,8 +65,11 @@ namespace GroupProject.Search
         /// <param name="e"></param>
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
-            clsInvoice invoice = (clsInvoice)dgInvoices.SelectedCells[0].Item;
-            InvoiceNum = invoice.InvoiceNum;
+            if (dgInvoices.SelectedItem != null)
+            {
+                clsInvoice invoice = (clsInvoice)dgInvoices.SelectedCells[0].Item;
+                InvoiceNum = invoice.InvoiceNum;
+            }
             this.Close();
         }
 

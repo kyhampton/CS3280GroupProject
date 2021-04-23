@@ -55,10 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="clsDataAccess.cs" />
-    <Compile Include="clsInvoice.cs" />
-    <Compile Include="clsItems.cs" />
-    <Compile Include="clsLineItems.cs" />
+    <Compile Include="Classes\clsDataAccess.cs" />
+    <Compile Include="Classes\clsInvoice.cs" />
+    <Compile Include="Classes\clsItems.cs" />
+    <Compile Include="Classes\clsLineItems.cs" />
     <Compile Include="Items\clsItemsLogic.cs" />
     <Compile Include="Items\clsItemsSQL.cs" />
     <Compile Include="Items\wndItems.xaml.cs">
@@ -118,6 +118,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\iconfinder_lemon_2003191.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Items\iconfinder_lemon_2003191.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
