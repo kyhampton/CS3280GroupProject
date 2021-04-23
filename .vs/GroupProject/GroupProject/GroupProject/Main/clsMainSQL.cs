@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupProject.Main
 {
-    class clsMainSQL
+    public class clsMainSQL
     {
         /// <summary>
         /// This will Update an Invoice
@@ -14,7 +14,7 @@ namespace GroupProject.Main
         /// <returns></returns>
         public string UpdateInvoices(string TotalCost, string InvoiceNum)
         {
-            string sSQL = "Update Invoices SET TotalCost =" + TotalCost + " WHERE InvoiceNum = " + InvoiceNum;
+            string sSQL = "Update Invoices SET TotalCost = " + TotalCost + " WHERE InvoiceNum =  " + InvoiceNum;
             return sSQL;
         }
         /// <summary>
@@ -25,6 +25,16 @@ namespace GroupProject.Main
         {
             string sSQL = "DELETE FROM LineItems WHERE InvoiceNum = " + InvoiceNum;
             return sSQL;
+        }
+        /// <summary>
+        /// This will Delete an Item From the Invoice through the LineItems DB
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
+        public string DeleteItemFromInvoice(string invoiceNum, string itemCode)
+        {
+            return String.Format("DELETE FROM LineItems WHERE InvoiceNum = {0} AND ItemCode = '{1}'", invoiceNum, itemCode);
         }
         /// <summary>
         /// This will Delete Selected Invoices
@@ -41,8 +51,8 @@ namespace GroupProject.Main
         /// <returns></returns>
         public string InsertLineItems(string InvoiceNum, string LineItemNum, string ItemCode)
         {
-            string sSQL = "INSERT INTO LineItems (InvoiceNum, LineItemNum, ItemCode) " +
-                "VALUES (" + InvoiceNum + ", " + LineItemNum + ", " + ItemCode+")";
+            string sSQL = String.Format("INSERT INTO LineItems (InvoiceNum, LineItemNum, ItemCode) " +
+                "VALUES ('{0}', '{1}', '{2}')", InvoiceNum, LineItemNum, ItemCode);
             return sSQL;
         }
         /// <summary>
@@ -55,6 +65,7 @@ namespace GroupProject.Main
                 "VALUES (#" + InvoiceDate + "#, " + TotalCost + ")";
             return sSQL;
         }
+
         /// <summary>
         /// This will Select and return Invoice Data from the DB
         /// </summary>
@@ -65,6 +76,7 @@ namespace GroupProject.Main
                 "FROM Invoices WHERE InvoiceNum =" + InvoiceNum;
             return sSQL;
         }
+
         /// <summary>
         /// This will Select and Return Items from the DB
         /// </summary>
@@ -81,10 +93,64 @@ namespace GroupProject.Main
         /// <returns></returns>
         public string SelectLineItems(string InvoiceNum)
         {
-            string sSQL = "SELECT LineItems.ItemCode, ItemDesc.ItemDesc, ItemDesc.Cost " +
-                "FROM LineItems, ItemDesc WHERE LineItems.ItemCode = ItemDesc.ItemCode AND " +
-                "LineItems.InvoiceNum = " + InvoiceNum;
+            string sSQL = String.Format("SELECT InvoiceNum, LineItemNum, ItemCode " +
+                "FROM LineItems " +
+                "WHERE InvoiceNum = {0}", InvoiceNum);
             return sSQL;
+        }
+
+        /// <summary>
+        /// Select All Invoices
+        /// </summary>
+        /// <returns></returns>
+        public string SelectAllInvoices()
+        {
+            return "SELECT * FROM Invoices";
+        }
+
+        /// <summary>
+        /// Returns the Max Invoice Number
+        /// </summary>
+        /// <returns></returns>
+        public string GenerateInvoiceID()
+        {
+            return "SELECT MAX(InvoiceNum) FROM Invoices";
+        }
+        /// <summary>
+        /// This will generate a Line Item Number via Invoice
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <returns></returns>
+        public string GenerateLineItemNum(string invoiceNum)
+        {
+            return "SELECT MAX(LineItemNum) FROM LineItems WHERE InvoiceNum = " + invoiceNum;
+        }
+        /// <summary>
+        /// This will return an ItemCode by Description
+        /// </summary>
+        /// <param name="itemDesc"></param>
+        /// <returns></returns>
+        public string GetItemCode(string itemDesc)
+        {
+            return "SELECT ItemCode FROM ItemDesc WHERE ItemDesc = '" + itemDesc + "'";
+        }
+        /// <summary>
+        /// This will Return the Item Cost by ItemCode
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
+        public string GetItemCost(string itemCode)
+        {
+            return String.Format("SELECT Cost FROM ItemDesc WHERE ItemCode = '{0}'", itemCode);
+        }
+        /// <summary>
+        /// This will Return the Item Description
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
+        public string GetItemDesc(string itemCode)
+        {
+            return String.Format("SELECT ItemDesc FROM ItemDesc WHERE ItemCode = '{0}'", itemCode);
         }
     }
 }

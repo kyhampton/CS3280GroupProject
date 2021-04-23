@@ -119,5 +119,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\iconfinder_lemon_2003191.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Items\iconfinder_lemon_2003191.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

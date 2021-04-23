@@ -61,7 +61,11 @@ namespace GroupProject.Items
                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Runs the provided SQL string and fills the Line Items List with the results.
+        /// </summary>
+        /// <param name="sSQL"></param>
+        /// <returns></returns>
         public List<clsLineItems>GetLineItems(string sSQL)
         {
             try
