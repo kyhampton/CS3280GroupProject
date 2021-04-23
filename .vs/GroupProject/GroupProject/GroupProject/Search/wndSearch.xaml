@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject.Search"
         mc:Ignorable="d"
-        Title="Lemonade Invoice Search" Height="452" Width="429" Icon="/GroupProject;component/Icons/iconfinder_lemon_2003191.png">
+        Title="Lemonade Invoice Search" Height="452" Width="484" Icon="/GroupProject;component/Icons/iconfinder_lemon_2003191.png" MinHeight="250" MinWidth="250">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="135*"/>
@@ -24,7 +24,7 @@
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="10,5,0,0" 
                 VerticalAlignment="Top" Width="75" FontSize="20" Click="btnCancel_Click" 
                 Background="White" Foreground="#FF29708E" Grid.Row="1"/>
-        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Margin="95,68,0,83" Width="291" IsReadOnly="True" Grid.RowSpan="2">
+        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" Margin="95,68,0,71" IsReadOnly="True" Grid.RowSpan="2" HorizontalAlignment="Left" Width="315">
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
