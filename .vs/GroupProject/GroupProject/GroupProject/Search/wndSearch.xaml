@@ -5,34 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject.Search"
         mc:Ignorable="d"
-        Title="Lemonade Invoice Search" Height="450" Width="800">
+        Title="Lemonade Invoice Search" Height="452" Width="429" Icon="/GroupProject;component/Icons/iconfinder_lemon_2003191.png">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="284*"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <LinearGradientBrush EndPoint="0.5,.5" MappingMode="Absolute" StartPoint="0.5,0">
                 <GradientStop Color="White"/>
                 <GradientStop Color="#FF1F6989" Offset="0.126"/>
                 <GradientStop Color="#FF29708E" Offset="0.121"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="btnSelect" Content="Select" HorizontalAlignment="Left" Margin="205,340,0,0" 
+        <Button x:Name="btnSelect" Content="Select" HorizontalAlignment="Left" Margin="10,68,0,0" 
                 VerticalAlignment="Top" Width="75" FontSize="20" Click="btnSelect_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="491,340,0,0" 
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="10,5,0,0" 
                 VerticalAlignment="Top" Width="75" FontSize="20" Click="btnCancel_Click" 
-                Background="White" Foreground="#FF29708E"/>
-        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Height="239" Margin="162,74,0,0" VerticalAlignment="Top" Width="463" IsReadOnly="True">
+                Background="White" Foreground="#FF29708E" Grid.Row="1"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Margin="95,68,0,112" Width="263" IsReadOnly="True" Grid.RowSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Total Cost" Binding="{Binding Path=TotalCost}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <ComboBox x:Name="cboNum" HorizontalAlignment="Left" Margin="177,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbo_SelectionChanged"/>
-        <ComboBox x:Name="cboDate" HorizontalAlignment="Left" Margin="334,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbo_SelectionChanged"/>
-        <ComboBox x:Name="cboCost" HorizontalAlignment="Left" Margin="491,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbo_SelectionChanged"/>
-        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="64,89,0,0" 
+        <ComboBox x:Name="cboNum" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbo_SelectionChanged"/>
+        <ComboBox x:Name="cboDate" HorizontalAlignment="Left" Margin="151,25,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbo_SelectionChanged"/>
+        <ComboBox x:Name="cboCost" HorizontalAlignment="Left" Margin="290,26,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbo_SelectionChanged"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="10,104,0,0" 
                 VerticalAlignment="Top" Width="75" FontSize="20" Click="btnReset_Click" 
-                Background="White" Foreground="#FF29708E"/>
+                Background="White" Foreground="#FF29708E" MinHeight="30"/>
         <Label x:Name="lblNum" Content="Invoice Number" HorizontalAlignment="Left" Margin="177,-1,0,0" VerticalAlignment="Top" Foreground="#FF29708E"/>
         <Label x:Name="lbl" Content="Invoice Date" HorizontalAlignment="Left" Margin="334,0,0,0" VerticalAlignment="Top" Foreground="#FF29708E"/>
         <Label x:Name="lblCost" Content="Total Cost" HorizontalAlignment="Left" Margin="491,0,0,0" VerticalAlignment="Top" Foreground="#FF29708E"/>
