@@ -108,13 +108,27 @@ namespace GroupProject
             this.Hide();
 
             searchWindow.ShowDialog();
-            int num;
-            num = searchWindow.InvoiceNum;
-            InvoiceNum = num.ToString();
-            //selected invoice stored in searchWindow.InvoiceNum
+             int num;
+             num = searchWindow.InvoiceNum;
 
+            // InvoiceNum = num.ToString();
+            //selected invoice stored in searchWindow.InvoiceNum
+            int i = 0;
+            foreach (var item in dgInvoices.Items)
+            {
+                clsInvoice invoice = (clsInvoice)item;
+                if(invoice.InvoiceNum == num)
+                {
+                    break;
+                }
+                i++;
+            }
+
+            dgInvoices.SelectedIndex = i;
             this.Show();
         }
+
+
         /// <summary>
         /// Click on this button and it will navigate you to the Edit Items Window
         /// </summary>
@@ -243,6 +257,13 @@ namespace GroupProject
         {
             string t = total.ToString();
             ml.UpdateInvoiceTotal(InvoiceNum, t);
+
+            //clear old data
+            dgInvoices.ClearValue(ItemsControl.ItemsSourceProperty);
+            
+            //refresh the items in the data grid
+            List<clsInvoice> invoice = ml.GetAllInvoices();
+            dgInvoices.ItemsSource = invoice;
 
             tbInvoiceNumber.Text = "TBD";
             dpInvoiceDate.SelectedDate = null;
