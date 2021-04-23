@@ -22,19 +22,19 @@ namespace GroupProject.Main
         /// <summary>
         /// List of Invoice Objects 
         /// </summary>
-        List<clsInvoice> invoiceResult = new List<clsInvoice>();
+        List<clsInvoice> invoiceResult;
         /// <summary>
         /// List of Item Objects
         /// </summary>
-        List<clsItems> itemsResult = new List<clsItems>();
+        List<clsItems> itemsResult;
         /// <summary>
         /// List of Item Objects for Searching By Item Code
         /// </summary>
-        List<clsItems> itemsSearchByCode = new List<clsItems>();
+        List<clsItems> itemsSearchByCode;
         /// <summary>
         /// List of Line Items Objects
         /// </summary>
-        List<clsLineItems> lineItemsResult = new List<clsLineItems>();
+        List<clsLineItems> lineItemsResult;
         #endregion
         #region Get Logic
         /// <summary>
@@ -48,6 +48,7 @@ namespace GroupProject.Main
             {
                 DataSet ds = new DataSet();
                 int iRef = 0;
+                itemsResult = new List<clsItems>();
 
                 var query = sql.SelectItems();
 
@@ -107,7 +108,10 @@ namespace GroupProject.Main
             {
                 DataSet ds = new DataSet();
                 int iRef = 0;
+
                 var query = sql.SelectLineItems(invoiceNum);
+
+                lineItemsResult = new List<clsLineItems>();
 
                 ds = db.ExecuteSQLStatement(query, ref iRef);
 
@@ -171,6 +175,7 @@ namespace GroupProject.Main
                 DataSet ds = new DataSet();
                 int iRef = 0;
                 var query = sql.GetItemDesc(itemCode);
+                itemsSearchByCode = new List<clsItems>();
 
                 ds = db.ExecuteSQLStatement(query, ref iRef);
 
@@ -196,6 +201,7 @@ namespace GroupProject.Main
                 DataSet ds = new DataSet();
                 int iRef = 0;
                 var query = sql.SelectAllInvoices();
+                invoiceResult = new List<clsInvoice>();
 
                 clsInvoice invoice;
 
