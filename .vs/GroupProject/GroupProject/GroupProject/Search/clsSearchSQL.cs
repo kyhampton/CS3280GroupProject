@@ -111,10 +111,5 @@ namespace GroupProject.Search
 
         }
 
-
-
-
-
-
     }
 }
