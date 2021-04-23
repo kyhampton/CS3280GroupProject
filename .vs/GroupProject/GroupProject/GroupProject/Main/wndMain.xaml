@@ -5,41 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Lemonade Invoice System" Height="450" Width="800">
     <Grid>
-        <Menu x:Name="Menu" Height="30" VerticalAlignment="Top" Margin="0,0,605,0" FontSize="20">
-            <MenuItem x:Name="itemSearch" Header="Search" Click="itemSearch_Click"/>
-            <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click"/>
-            <MenuItem x:Name="itemsClose" Header="Exit" Click="itemClose_Cllick"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FF1F6989" Offset="0.126"/>
+                <GradientStop Color="#FF29708E" Offset="0.121"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Menu x:Name="Menu" Height="30" VerticalAlignment="Top" Margin="0,0,595,0" FontSize="20" Background="White">
+            <MenuItem x:Name="itemSearch" Header="Search" Click="itemSearch_Click" Background="White" Foreground="#FF29708E"/>
+            <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click" Background="White" Foreground="#FF29708E"/>
+            <MenuItem x:Name="itemClose" Header="Exit" Click="itemClose_Click" Width="52" Background="White" Foreground="#FF29708E"/>
         </Menu>
+        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Height="184" Margin="473,192,0,0" 
+                  VerticalAlignment="Top" Width="297" SelectionChanged="dgInvoices_SelectionChanged"
+                  ItemsSource="{Binding datalist}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Total Cost" Binding="{Binding Path=TotalCost}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Label Content="Invoice Number" HorizontalAlignment="Left" Margin="32,48,0,0" 
-               VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TBD" 
+               VerticalAlignment="Top" Height="43" Width="155" FontSize="20" Foreground="White"/>
+        <TextBox x:Name="tbInvoiceNumber" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TBD" 
                  VerticalAlignment="Top" Width="150" Margin="220,52,0,0" FontSize="20"
-                 IsReadOnly="True"/>
+                 IsReadOnly="True" IsEnabled="False"/>
         <Label Content="Invoice Date" HorizontalAlignment="Left" Margin="32,96,0,0" 
-            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20" Foreground="White"/>
         <Label Content="Total Cost" HorizontalAlignment="Left" Margin="32,144,0,0" 
-            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20" Foreground="White"/>
         <TextBox x:Name="txtbxTotalCost" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" 
             VerticalAlignment="Top" Width="150" Margin="220,144,0,0" FontSize="20"
-            IsReadOnly="True"/>
+            IsReadOnly="True" IsEnabled="False"/>
         <Label Content="Invoice Item" HorizontalAlignment="Left" Margin="32,192,0,0" 
-            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,96,0,0" 
-                    Height="33" Width="150" FontSize="20"/>
-        <ListBox HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" 
-                 Width="150" Margin="220,195,0,0" FontSize="20"/>
-        <Button x:Name="btnAddItem" Content="+" HorizontalAlignment="Left" Margin="392,192,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" FontSize="20" Height="37"/>
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20" Foreground="White"/>
+        <DatePicker x:Name="dpInvoiceDate" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,96,0,0" 
+                    Height="33" Width="150" FontSize="20" IsEnabled="False"/>
+        <ComboBox x:Name="cmbInvoiceItem" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" 
+                 Width="150" Margin="220,195,0,0" FontSize="20" IsEnabled="False" SelectionChanged="cmbInvoiceItem_SelectionChanged"/>
+        <Button x:Name="btnAddItem" Content="+" HorizontalAlignment="Left" Margin="392,192,0,0" 
+                VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" 
+                FontSize="20" Height="37" IsEnabled="False" Click="btnAddItem_Click" 
+                Background="White" Foreground="#FF29708E"/>
         <Label Content="Items Added" HorizontalAlignment="Left" Margin="32,240,0,0" 
-            VerticalAlignment="Top" Height="43" Width="155" FontSize="20"/>
-        <ListBox x:Name="lstbxItemsAdded" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" 
-            Width="150" Margin="220,243,0,0" FontSize="20"/>
-        <Button x:Name="btnRemoveItem" Content="-" HorizontalAlignment="Left" Margin="392,243,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" FontSize="20" Height="37"/>
-        <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="424,48,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
-        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="592,52,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
-        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="508,120,0,0" VerticalAlignment="Top" Width="131" Height="54" FontSize="20"/>
-        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="318,355,0,0" VerticalAlignment="Top" Width="130" Height="54" FontSize="20"/>
+            VerticalAlignment="Top" Height="43" Width="155" FontSize="20" Foreground="White"/>
+        <ComboBox x:Name="cmbxItemsAdded" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" 
+            Width="150" Margin="220,243,0,0" FontSize="20" IsEnabled="False" SelectionChanged="cmbxItemsAdded_SelectionChanged"/>
+        <Button x:Name="btnRemoveItem" Content="-" HorizontalAlignment="Left" Margin="392,243,0,0" 
+                VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" 
+                FontSize="20" Height="37" IsEnabled="False" Click="btnRemoveItem_Click" 
+                Background="White" Foreground="#FF29708E"/>
+        <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="424,48,0,0" 
+                VerticalAlignment="Top" Width="131" Height="54" FontSize="20" IsEnabled="False" Click="btnEditInvoice_Click" 
+                Background="White" Foreground="#FF29708E"/>
+        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="592,52,0,0" 
+                VerticalAlignment="Top" Width="131" Height="54" FontSize="20" Click="btnNewInvoice_Click" 
+                Background="White" Foreground="#FF29708E"/>
+        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="508,120,0,0" 
+                VerticalAlignment="Top" Width="131" Height="54" FontSize="20" IsEnabled="False" Click="btnDeleteInvoice_Click" 
+                Background="White" Foreground="#FF29708E"/>
+        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="319,340,0,0" 
+                VerticalAlignment="Top" Width="130" Height="54" FontSize="20" IsEnabled="False" 
+                Click="btnSaveInvoice_Click" Background="White" Foreground="#FF29708E"/>
 
     </Grid>
 </Window>
