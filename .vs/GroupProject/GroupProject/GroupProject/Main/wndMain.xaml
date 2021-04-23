@@ -19,7 +19,7 @@
             <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click" Background="White" Foreground="#FF29708E"/>
             <MenuItem x:Name="itemClose" Header="Exit" Click="itemClose_Click" Width="52" Background="White" Foreground="#FF29708E"/>
         </Menu>
-        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Margin="454,121,0,19" Width="310" SelectionChanged="dgInvoices_SelectionChanged"
+        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Margin="454,192,0,21" Width="310" SelectionChanged="dgInvoices_SelectionChanged"
                   ItemsSource="{Binding datalist}" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
@@ -60,13 +60,13 @@
         <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="454,48,0,0" 
                 VerticalAlignment="Top" Width="131" Height="54" FontSize="20" IsEnabled="False" Click="btnEditInvoice_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="32,304,0,0" 
+        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="620,48,0,0" 
                 VerticalAlignment="Top" Width="131" Height="54" FontSize="20" Click="btnNewInvoice_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="634,48,0,0" 
+        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="539,120,0,0" 
                 VerticalAlignment="Top" Width="131" Height="54" FontSize="20" IsEnabled="False" Click="btnDeleteInvoice_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="220,304,0,0" 
+        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="131,314,0,0" 
                 VerticalAlignment="Top" Width="130" Height="54" FontSize="20" IsEnabled="False" 
                 Click="btnSaveInvoice_Click" Background="White" Foreground="#FF29708E"/>
 
