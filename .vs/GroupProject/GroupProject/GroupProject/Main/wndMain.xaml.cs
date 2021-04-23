@@ -113,20 +113,22 @@ namespace GroupProject
              int num;
              num = searchWindow.InvoiceNum;
 
-            // InvoiceNum = num.ToString();
-            //selected invoice stored in searchWindow.InvoiceNum
+            //find the invoice in the datagrid
             int i = 0;
-            foreach (var item in dgInvoices.Items)
+            if (num != -1)
             {
-                clsInvoice invoice = (clsInvoice)item;
-                if(invoice.InvoiceNum == num)
+                foreach (var item in dgInvoices.Items)
                 {
-                    break;
+                    clsInvoice invoice = (clsInvoice)item;
+                    if (invoice.InvoiceNum == num)
+                    {
+                        break;
+                    }
+                    i++;
                 }
-                i++;
-            }
 
-            dgInvoices.SelectedIndex = i;
+                dgInvoices.SelectedIndex = i;
+            }
             this.Show();
         }
 

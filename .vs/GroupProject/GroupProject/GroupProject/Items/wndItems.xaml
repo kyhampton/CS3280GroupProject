@@ -14,7 +14,7 @@
                 <GradientStop Color="#FF29708E" Offset="0.058"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <DataGrid x:Name="dgItemList" Margin="10,217,0,10" SelectionChanged="dgItemList_SelectionChanged" CanUserAddRows="False" MaxWidth="463" HorizontalAlignment="Left" Width="463"/>
+        <DataGrid x:Name="dgItemList" Margin="10,217,0,10" SelectionChanged="dgItemList_SelectionChanged" CanUserAddRows="False" MaxWidth="463" HorizontalAlignment="Left" Width="463" IsReadOnly="True"/>
         <GroupBox x:Name="gbItemManagement" Header="Item Management" Height="202" Margin="10,10,0,0" 
                   VerticalAlignment="Top" HorizontalAlignment="Left" Width="463">
             <Grid Height="173" Margin="0,0,-2,0" VerticalAlignment="Top">

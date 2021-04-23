@@ -20,7 +20,7 @@
         <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="491,340,0,0" 
                 VerticalAlignment="Top" Width="75" FontSize="20" Click="btnCancel_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Height="239" Margin="162,74,0,0" VerticalAlignment="Top" Width="463">
+        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Height="239" Margin="162,74,0,0" VerticalAlignment="Top" Width="463" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>

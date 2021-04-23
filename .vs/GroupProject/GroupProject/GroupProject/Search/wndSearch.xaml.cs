@@ -65,12 +65,24 @@ namespace GroupProject.Search
         /// <param name="e"></param>
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
-            if (dgInvoices.SelectedItem != null)
+            try
             {
-                clsInvoice invoice = (clsInvoice)dgInvoices.SelectedCells[0].Item;
-                InvoiceNum = invoice.InvoiceNum;
+                if (dgInvoices.SelectedItem != null)
+                {
+                    clsInvoice invoice = (clsInvoice)dgInvoices.SelectedCells[0].Item;
+                    InvoiceNum = invoice.InvoiceNum;
+                }
+                else
+                {
+                    InvoiceNum = -1;
+                }
+                this.Close();
             }
-            this.Close();
+            catch (Exception ex)
+            {
+                HandleError(MethodInfo.GetCurrentMethod().DeclaringType.Name,
+                    MethodInfo.GetCurrentMethod().Name, ex.Message);
+            }
         }
 
         /// <summary>
