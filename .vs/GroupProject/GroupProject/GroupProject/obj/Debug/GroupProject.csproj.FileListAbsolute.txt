@@ -54,3 +54,4 @@ C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\Gro
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.csproj.CoreCompileInputs.cache
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.exe
 C:\Users\popro\Source\Repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.pdb
+C:\Users\popro\source\repos\CS3280GroupProject\.vs\GroupProject\GroupProject\GroupProject\obj\Debug\GroupProject.csprojAssemblyReference.cache

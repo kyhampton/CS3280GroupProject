@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GroupProject"
         mc:Ignorable="d"
-        Title="Lemonade Invoice System" Height="450" Width="800">
-    <Grid>
+        Title="Lemonade Invoice System" Height="450" Width="800" Icon="/GroupProject;component/Icons/iconfinder_lemon_2003191.png" MinWidth="400" MaxWidth="1200">
+    <Grid MinHeight="400">
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <LinearGradientBrush EndPoint="396,250" MappingMode="Absolute" StartPoint="396,0">
                 <GradientStop Color="White"/>
                 <GradientStop Color="#FF1F6989" Offset="0.126"/>
                 <GradientStop Color="#FF29708E" Offset="0.121"/>
@@ -19,11 +19,10 @@
             <MenuItem x:Name="itemItems" Header="Items" Click="itemItems_Click" Background="White" Foreground="#FF29708E"/>
             <MenuItem x:Name="itemClose" Header="Exit" Click="itemClose_Click" Width="52" Background="White" Foreground="#FF29708E"/>
         </Menu>
-        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Height="184" Margin="473,192,0,0" 
-                  VerticalAlignment="Top" Width="297" SelectionChanged="dgInvoices_SelectionChanged"
+        <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Margin="454,121,0,19" Width="310" SelectionChanged="dgInvoices_SelectionChanged"
                   ItemsSource="{Binding datalist}" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Total Cost" Binding="{Binding Path=TotalCost}"></DataGridTextColumn>
             </DataGrid.Columns>
@@ -58,16 +57,16 @@
                 VerticalAlignment="Top" Width="40" RenderTransformOrigin="-0.836,3.581" 
                 FontSize="20" Height="37" IsEnabled="False" Click="btnRemoveItem_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="424,48,0,0" 
+        <Button x:Name="btnEditInvoice" Content="Edit Invoice" HorizontalAlignment="Left" Margin="454,48,0,0" 
                 VerticalAlignment="Top" Width="131" Height="54" FontSize="20" IsEnabled="False" Click="btnEditInvoice_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="592,52,0,0" 
+        <Button x:Name="btnNewInvoice" Content="New Invoice" HorizontalAlignment="Left" Margin="32,304,0,0" 
                 VerticalAlignment="Top" Width="131" Height="54" FontSize="20" Click="btnNewInvoice_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="508,120,0,0" 
+        <Button x:Name="btnDeleteInvoice" Content="Delete Invoice" HorizontalAlignment="Left" Margin="634,48,0,0" 
                 VerticalAlignment="Top" Width="131" Height="54" FontSize="20" IsEnabled="False" Click="btnDeleteInvoice_Click" 
                 Background="White" Foreground="#FF29708E"/>
-        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="319,340,0,0" 
+        <Button x:Name="btnSaveInvoice" Content="Save Invoice" HorizontalAlignment="Left" Margin="220,304,0,0" 
                 VerticalAlignment="Top" Width="130" Height="54" FontSize="20" IsEnabled="False" 
                 Click="btnSaveInvoice_Click" Background="White" Foreground="#FF29708E"/>
 
