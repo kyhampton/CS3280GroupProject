@@ -78,14 +78,16 @@ namespace GroupProject
         #endregion
 
         #region Constructor
-
+        /// <summary>
+        /// Constructor for Main Window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             Application.Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
             ml = new clsMainLogic();
-
+            //Populate Items ComboBox
             cmbInvoiceItem.ItemsSource = ml.getItems().Select(a => a.ItemDesc);
 
             //Populate DataGrid with Invoices
@@ -128,7 +130,6 @@ namespace GroupProject
             this.Show();
         }
 
-
         /// <summary>
         /// Click on this button and it will navigate you to the Edit Items Window
         /// </summary>
@@ -146,7 +147,11 @@ namespace GroupProject
 
             this.Show();
         }
-
+        /// <summary>
+        /// On Click Main Window Closes and Program Ends
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void itemClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -169,18 +174,23 @@ namespace GroupProject
                 txtbxTotalCost.IsEnabled = true;
                 cmbInvoiceItem.IsEnabled = true;
                 cmbxItemsAdded.IsEnabled = true;
+
                 //Enable Save button
                 btnSaveInvoice.IsEnabled = true;
 
+                //Insert Current Date
                 dpInvoiceDate.SelectedDate = DateTime.Today;
                 ml.SaveInvoice(dpInvoiceDate.SelectedDate.Value.Date.ToShortDateString(), "0");
+
+                //Generate a new Invoice ID
                 newID = ml.GenerateInvoiceID();
 
+                //Insert Invoice ID onto Page
                 tbInvoiceNumber.Text = newID;
+
+                //Set variable to Current InvoiceNum
                 InvoiceNum = newID;
 
-                //InsertInvoices()
-                //InsertLineItems()
             }
             catch (Exception ex)
             {
@@ -195,11 +205,13 @@ namespace GroupProject
         /// <param name="e"></param>
         private void btnEditInvoice_Click(object sender, RoutedEventArgs e)
         {
+            //Enable Buttons
             tbInvoiceNumber.IsEnabled = true;
             dpInvoiceDate.IsEnabled = true;
             txtbxTotalCost.IsEnabled = true;
             cmbInvoiceItem.IsEnabled = true;
             cmbxItemsAdded.IsEnabled = true;
+
             //Enable Save button
             btnSaveInvoice.IsEnabled = true;
 
@@ -237,13 +249,13 @@ namespace GroupProject
 
             ml.DeleteLineItems(invoiceNum);
             ml.DeleteInvoice(invoiceNum);
-
+            
             dgInvoices.ClearValue(ItemsControl.ItemsSourceProperty);
 
             //Populate DataGrid with Invoices
             List<clsInvoice> refresh = ml.GetAllInvoices();
             dgInvoices.ItemsSource = refresh;
-
+            //disable Delete and Edit Buttons
             btnDeleteInvoice.IsEnabled = false;
             btnEditInvoice.IsEnabled = false;
         }
@@ -329,23 +341,26 @@ namespace GroupProject
         /// <param name="e"></param>
         private void btnRemoveItem_Click(object sender, RoutedEventArgs e)
         {
+            //Check to make sure item is selected
             if (addedItem.Equals(" ") || addedItem.Equals(null)) return;
             string itemDesc = cmbxItemsAdded.SelectedItem.ToString();
-
+            //Remove item
             addeditems.Remove(itemDesc);
 
             string itemCode = ml.getItemCode(itemDesc);
-
+            //Subtract removed item from total
             double cost;
             cost = ml.getItemCost(itemCode);
             total -= cost;
-
+            //Remove Item from Invoice
             ml.DeleteItemFromInvoice(InvoiceNum, itemCode);
-
+            //Clear ComboBox Added Items
             cmbxItemsAdded.ClearValue(ItemsControl.ItemsSourceProperty);
+            //Reload Added Items to ComboBox
             cmbxItemsAdded.ItemsSource = addeditems;
-
+            //Clear Selected
             cmbxItemsAdded.SelectedIndex = -1;
+            //Disable Remove Button
             btnRemoveItem.IsEnabled = false;
 
             //Change Total
@@ -356,17 +371,6 @@ namespace GroupProject
 
         #region Combo Box
         /// <summary>
-        /// List of Items Changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //SelectItems()
-            //Pull Items from DB
-        }
-
-        /// <summary>
         /// Invoice Item on Selection loads curItem
         /// </summary>
         /// <param name="sender"></param>
@@ -375,8 +379,10 @@ namespace GroupProject
         {
             try
             {
+                //Take Selected Item and instantiate it into Current Item variable
                 ComboBox item = (ComboBox)sender;
                 curItem = item.ToString();
+                //Enable Add Item to Invoice Button
                 btnAddItem.IsEnabled = true;
             }
             catch (Exception ex)
@@ -395,8 +401,10 @@ namespace GroupProject
         {
             try
             {
+                //Take Selected Item and instantiate it into Added Item variable
                 ComboBox item = (ComboBox)sender;
                 addedItem = item.ToString();
+                //Enable Remove Item from Invoice Button
                 btnRemoveItem.IsEnabled = true;
             }
             catch (Exception ex)
@@ -409,6 +417,11 @@ namespace GroupProject
         #endregion
 
         #region Data Grid
+        /// <summary>
+        /// Data Grid on Selected Invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgInvoices_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try

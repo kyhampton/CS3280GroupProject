@@ -11,11 +11,29 @@ namespace GroupProject.Main
     public class clsMainLogic
     {
         #region Variables
+        /// <summary>
+        /// Object for the Database
+        /// </summary>
         clsDataAccess db = new clsDataAccess();
+        /// <summary>
+        /// Object for SQL queries
+        /// </summary>
         clsMainSQL sql = new clsMainSQL();
+        /// <summary>
+        /// List of Invoice Objects 
+        /// </summary>
         List<clsInvoice> invoiceResult = new List<clsInvoice>();
+        /// <summary>
+        /// List of Item Objects
+        /// </summary>
         List<clsItems> itemsResult = new List<clsItems>();
+        /// <summary>
+        /// List of Item Objects for Searching By Item Code
+        /// </summary>
         List<clsItems> itemsSearchByCode = new List<clsItems>();
+        /// <summary>
+        /// List of Line Items Objects
+        /// </summary>
         List<clsLineItems> lineItemsResult = new List<clsLineItems>();
         #endregion
         #region Get Logic
@@ -54,7 +72,11 @@ namespace GroupProject.Main
             }
             return itemsResult;
         }
-
+        /// <summary>
+        /// Runs the provided SQL string and fills string up with result
+        /// </summary>
+        /// <param name="itemDesc"></param>
+        /// <returns></returns>
         public string getItemCode(string itemDesc)
         {
             try
@@ -74,7 +96,11 @@ namespace GroupProject.Main
                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Runs SQL to Get Invoice Items through the LineItems DB
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <returns></returns>
         public List<clsLineItems> getInvoiceItems(string invoiceNum)
         {
             try
@@ -106,7 +132,11 @@ namespace GroupProject.Main
 
             return lineItemsResult;
         }
-
+        /// <summary>
+        /// Runs SQL to Get Item Cost
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
         public double getItemCost(string itemCode)
         {
             try
@@ -129,7 +159,11 @@ namespace GroupProject.Main
                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Runs SQL to Get Items and returns an Item List
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
         public List<clsItems> GetItemsByCode(string itemCode)
         {
             try
@@ -145,13 +179,6 @@ namespace GroupProject.Main
                 items.ItemDesc = ds.Tables[0].Rows[0].ItemArray[0].ToString();
 
                 itemsSearchByCode.Add(items);
-
-                //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                //{
-                //    items = new clsItems();
-                //    items.ItemDesc = ds.Tables[0].Rows[i][0].ToString();
-                //    itemsResult.Add(items);
-                //}
                 
             }
             catch (Exception ex)
@@ -196,6 +223,12 @@ namespace GroupProject.Main
         }
         #endregion
         #region Insert Logic
+        /// <summary>
+        /// Non Query to Insert Invoice Item into Line Item DB
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <param name="lineItemNum"></param>
+        /// <param name="itemCode"></param>
         public void InsertLineItem(string invoiceNum, string lineItemNum, string itemCode)
         {
             try
@@ -210,9 +243,13 @@ namespace GroupProject.Main
                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-
         #endregion
         #region Update Logic
+        /// <summary>
+        /// Non Query To Update Invoices Total
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <param name="total"></param>
         public void UpdateInvoiceTotal(string invoiceNum, string total)
         {
             try
@@ -245,7 +282,11 @@ namespace GroupProject.Main
                                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Non Query to Delete Item From Invoice through Line Item DB
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <param name="itemCode"></param>
         public void DeleteItemFromInvoice(string invoiceNum, string itemCode)
         {
             try
@@ -276,6 +317,11 @@ namespace GroupProject.Main
         }
         #endregion
         #region Methods
+        /// <summary>
+        /// Method to Save Invoice
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="total"></param>
         public void SaveInvoice(string date, string total)
         {
             try
@@ -288,6 +334,10 @@ namespace GroupProject.Main
                                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
+        /// <summary>
+        /// Method to Generate an Invoice ID
+        /// </summary>
+        /// <returns></returns>
         public string GenerateInvoiceID()
         {
             try
@@ -311,7 +361,11 @@ namespace GroupProject.Main
                                     MethodInfo.GetCurrentMethod().Name + " -> " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Method to Generate Line Item Number by Invoice Number
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <returns></returns>
         public string GenerateLineItemNum(string invoiceNum)
         {
             try

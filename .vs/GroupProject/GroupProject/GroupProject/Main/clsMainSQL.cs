@@ -26,7 +26,12 @@ namespace GroupProject.Main
             string sSQL = "DELETE FROM LineItems WHERE InvoiceNum = " + InvoiceNum;
             return sSQL;
         }
-
+        /// <summary>
+        /// This will Delete an Item From the Invoice through the LineItems DB
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
         public string DeleteItemFromInvoice(string invoiceNum, string itemCode)
         {
             return String.Format("DELETE FROM LineItems WHERE InvoiceNum = {0} AND ItemCode = '{1}'", invoiceNum, itemCode);
@@ -111,22 +116,38 @@ namespace GroupProject.Main
         {
             return "SELECT MAX(InvoiceNum) FROM Invoices";
         }
-
+        /// <summary>
+        /// This will generate a Line Item Number via Invoice
+        /// </summary>
+        /// <param name="invoiceNum"></param>
+        /// <returns></returns>
         public string GenerateLineItemNum(string invoiceNum)
         {
             return "SELECT MAX(LineItemNum) FROM LineItems WHERE InvoiceNum = " + invoiceNum;
         }
-
+        /// <summary>
+        /// This will return an ItemCode by Description
+        /// </summary>
+        /// <param name="itemDesc"></param>
+        /// <returns></returns>
         public string GetItemCode(string itemDesc)
         {
             return "SELECT ItemCode FROM ItemDesc WHERE ItemDesc = '" + itemDesc + "'";
         }
-
+        /// <summary>
+        /// This will Return the Item Cost by ItemCode
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
         public string GetItemCost(string itemCode)
         {
             return String.Format("SELECT Cost FROM ItemDesc WHERE ItemCode = '{0}'", itemCode);
         }
-
+        /// <summary>
+        /// This will Return the Item Description
+        /// </summary>
+        /// <param name="itemCode"></param>
+        /// <returns></returns>
         public string GetItemDesc(string itemCode)
         {
             return String.Format("SELECT ItemDesc FROM ItemDesc WHERE ItemCode = '{0}'", itemCode);
