@@ -167,6 +167,9 @@ namespace GroupProject
                 //Update all dropdowns to reflect any changes (dropdown.itemsSource =)
 
                 this.Show();
+
+                cmbInvoiceItem.ClearValue(ItemsControl.ItemsSourceProperty);
+                cmbInvoiceItem.ItemsSource = ml.getItems().Select(a => a.ItemDesc);
             }
             catch (Exception ex)
             {

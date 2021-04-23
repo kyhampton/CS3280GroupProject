@@ -21,7 +21,7 @@
         </Menu>
         <DataGrid AutoGenerateColumns="False" x:Name="dgInvoices" HorizontalAlignment="Left" Height="184" Margin="473,192,0,0" 
                   VerticalAlignment="Top" Width="297" SelectionChanged="dgInvoices_SelectionChanged"
-                  ItemsSource="{Binding datalist}" IsReadOnly="True">
+                  ItemsSource="{Binding datalist}" IsReadOnly="True" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Invoice Number" Binding="{Binding Path=InvoiceNum}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Invoice Date" Binding="{Binding Path=InvoiceDate}"></DataGridTextColumn>
